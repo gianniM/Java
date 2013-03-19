@@ -1,0 +1,81 @@
+import javax.swing.*;
+import java.awt.*;
+public class GUIAssignment extends JFrame {
+
+ Container container;
+
+ JButton btnAdd, btnInsert, btnUpdate, btnFirst, btnLast, btnPrev, btnNext;
+ JPanel panel, centerPanel, westPanel, northPanel, southPanel;
+ JTextField txtID, txtName, txtEmail, topPanel;
+ JLabel lblID, lblName, lblEmail;
+ 
+ public GUIAssignment() {
+  super("GUI Assignment");
+  container = getContentPane();
+  
+  Color white = new Color(255,255,255);
+  
+  northPanel = new JPanel();
+  northPanel.setLayout(new FlowLayout());
+  northPanel.setBackground(white);
+  topPanel = new JTextField(30);
+  topPanel.setSize(300,30);
+  northPanel.add(topPanel);
+  
+  panel = new JPanel();
+  panel.setLayout(new BorderLayout());
+  container.add(panel, BorderLayout.CENTER);
+  
+  centerPanel = new JPanel();
+  centerPanel.setLayout(new GridLayout(3,3));
+  
+  southPanel = new JPanel();
+  southPanel.setLayout(new FlowLayout());
+  
+  btnFirst = new JButton("First");
+  btnPrev = new JButton("Prev");
+  btnNext = new JButton("Next");
+  btnLast = new JButton("Last");
+  
+  southPanel.add(btnFirst);
+  southPanel.add(btnPrev);
+  southPanel.add(btnNext);
+  southPanel.add(btnLast);
+  
+  lblID = new JLabel("StdId:");
+  lblName = new JLabel("Name:");
+  lblEmail = new JLabel("Email");
+  txtID = new JTextField("10");
+  txtName = new JTextField("Mary");
+  txtEmail = new JTextField("@gmail.com");
+  btnAdd = new JButton("Add New");
+  btnInsert = new JButton("Insert"); 
+  btnUpdate = new JButton("Update");
+  
+  centerPanel.add(lblID);
+  centerPanel.add(txtID);
+  centerPanel.add(btnAdd);
+  centerPanel.add(lblName);
+  centerPanel.add(txtName);
+  centerPanel.add(btnInsert);
+  centerPanel.add(lblEmail);
+  centerPanel.add(txtEmail);
+  centerPanel.add(btnUpdate);
+  
+  panel.add(centerPanel, BorderLayout.CENTER);
+  panel.add(northPanel, BorderLayout.NORTH);
+  panel.add(southPanel, BorderLayout.SOUTH);
+   
+ }
+ 
+ public static void main(String[] args) {
+  
+  GUIAssignment app = new GUIAssignment();
+  app.setSize(200,450);
+  app.setVisible(true);
+  app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  app.pack();
+
+ }
+
+}
